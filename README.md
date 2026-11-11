@@ -133,3 +133,7 @@ The floating-Gaussian idea grew out of early work on Gaussian functions in molec
 Off-center Gaussian methods sit between two extremes. Atom-centered GTO sets are systematic and standard for routine quantum chemistry. Fully variational schemes that treat all positions as free parameters are more flexible but harder to control. The lobe method can be viewed as a directed floating basis, in which displacement follows a chosen orbital shape. The classic FSGO method uses spherical floating functions with no preferred direction.
 
 In practice, off-center Gaussian methods have been applied mainly in specialized studies and in minimal or semi-empirical contexts, rather than as general replacements for standard Gaussian basis sets. Their practical value depends on whether the reduction in function count outweighs the cost of nonlinear optimization and the numerical difficulties of non-orthogonal, off-center functions.
+
+## Bibliography
+
++ S. Garashchuk, J. C. Light **Quasirandom distributed Gaussian bases for bound problems**, [J. Chem. Phys. 114, 3929–3939 (2001)](https://doi.org/10.1063/1.1348022)
