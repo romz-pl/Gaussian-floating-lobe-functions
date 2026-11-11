@@ -136,15 +136,17 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 ## Bibliography
 
-+ J. L. Whitten **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
++ J. L. Whitten, **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
 
-+ A. A. Frost **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
++ A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
 
-+ A. A. Frost **Floating Spherical Gaussian Orbital Model of Molecular Structure. II. One and Two Electron Pair Systems**, [J. Chem. Phys. 47, 3714 (1967)](https://doi.org/10.1063/1.1701525)
++ A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. II. One and Two Electron Pair Systems**, [J. Chem. Phys. 47, 3714 (1967)](https://doi.org/10.1063/1.1701525)
 
-+ A.H. Pakiari, M. Oftadeh **First derivative of molecular integrals for electronic energy using spherical gaussian type orbitals**, [Journal of Molecular Structure (Theochem) 389, 169-177 (1997)](https://doi.org/10.1016/S0166-1280(96)04727-6)
++ J. D. Petke, J. L. Whitten, A. W. Douglas, **Gaussian lobe function expansions of Hartree–Fock solutions for the second-row atoms**, [J. Chem. Phys. 51, 256–262 (1969)]( https://doi.org/10.1063/1.1671716)
 
-+ S. Garashchuk, J. C. Light **Quasirandom distributed Gaussian bases for bound problems**, [J. Chem. Phys. 114, 3929–3939 (2001)](https://doi.org/10.1063/1.1348022)
++ A.H. Pakiari, M. Oftadeh, **First derivative of molecular integrals for electronic energy using spherical gaussian type orbitals**, [Journal of Molecular Structure (Theochem) 389, 169-177 (1997)](https://doi.org/10.1016/S0166-1280(96)04727-6)
+
++ S. Garashchuk, J. C. Light, **Quasirandom distributed Gaussian bases for bound problems**, [J. Chem. Phys. 114, 3929–3939 (2001)](https://doi.org/10.1063/1.1348022)
 
 
 
