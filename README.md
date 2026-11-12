@@ -172,6 +172,9 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 + J. L. Whitten, **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
 
++ S. D. Peyerimhoff, R. J. Buenker, L. C. Allen, **Geometry of Molecules. I. Wavefunctions for Some Six‐ and Eight‐Electron Polyhydrides**, [J. Chem. Phys. 45, 734–749 (1966)](https://doi.org/10.1063/1.1727634)
+
+
 
 ### 1967
 
