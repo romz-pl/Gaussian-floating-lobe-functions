@@ -149,6 +149,10 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 ## Bibliography
 
+### 1950
+
++ S. F. Boys, **Electronic Wave Functions. I. A General Method of Calculation for the Stationary States of Any Molecular System**, [Proc. R. Soc. Lond. A. 200 542–554 (1950)](https://doi.org/10.1098/rspa.1950.0036)
+
 ### 1956
 
 + H. Preuss, **Über die Verwendung von Gauß-Funktionen in der Wellenmechanik (On the Use of Gaussian Functions in Wave Mechanics)**, [Zeitschrift für Naturforschung A, Volume 11a, Issue 10, Pages 823–831 (1956)](https://doi.org/0.1515/zna-1956-1007)
