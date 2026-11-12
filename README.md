@@ -136,6 +136,8 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 ## Bibliography
 
++ H. Preuss, **Über die Verwendung von Gauß-Funktionen in der Wellenmechanik (On the Use of Gaussian Functions in Wave Mechanics)**, [Zeitschrift für Naturforschung A, Volume 11a, Issue 10, Pages 823–831 (1956)](https://doi.org/0.1515/zna-1956-1007)
+
 + J. L. Whitten, **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
 
 + A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
