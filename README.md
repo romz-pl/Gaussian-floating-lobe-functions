@@ -80,10 +80,25 @@ For the lobe method, the nonlinear parameters are typically the centers and expo
 Because every basis function is an s-type Gaussian, the central tool is the Gaussian product theorem. For two primitives centered at $\mathbf A$ and $\mathbf B$,
 
 $$
-e^{-\alpha|\mathbf r - \mathbf A|^2}\, e^{-\beta|\mathbf r - \mathbf B|^2} = K_{AB}\, e^{-\gamma|\mathbf r - \mathbf P|^2},
+\exp(-\alpha |\mathbf r - \mathbf A|^2) \exp(-\beta |\mathbf r - \mathbf B|^2) = 
+K_{AB} \exp(-\gamma|\mathbf r - \mathbf P|^2),
 $$
 
-where $\gamma = \alpha + \beta$, $\mathbf P = (\alpha \mathbf A + \beta \mathbf B)/\gamma$, and $K_{AB} = \exp\!\left(-\frac{\alpha\beta}{\gamma}|\mathbf A - \mathbf B|^2\right)$.
+where
+
+$$
+\gamma = \alpha + \beta
+$$
+
+$$
+\mathbf P = (\alpha \mathbf A + \beta \mathbf B) / \gamma
+$$
+
+and 
+
+$$
+K_{AB} = \exp \left( -\frac{\alpha\beta}{\gamma}|\mathbf A - \mathbf B|^2 \right)
+$$
 
 Overlap and kinetic integrals have closed forms. Nuclear attraction and two-electron repulsion integrals reduce to the Boys function $F_m(T)$ after the product theorem is applied. Because all functions are s-type, the recursion relations are short, and the integral code is simpler and faster than for general Cartesian or spherical Gaussians. The cost grows with the number of functions and with the number of distinct centers in multi-center integrals.
 
