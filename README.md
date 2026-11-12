@@ -105,7 +105,7 @@ Overlap and kinetic integrals have closed forms. Nuclear attraction and two-elec
 For the floating approach, the energy gradient with respect to a center $\mathbf R_\mu$ is needed for efficient optimization. For an s-type Gaussian,
 
 $$
-\frac{\partial g}{\partial \mathbf R_\mu} = 2\alpha_\mu (\mathbf r - \mathbf R_\mu)\, g,
+\frac{\partial g}{\partial \mathbf R_\mu} = 2\alpha_\mu (\mathbf r - \mathbf R_\mu) g
 $$
 
 and the resulting derivative integrals can be evaluated with the same product machinery using shifted indices. The gradient also includes contributions from the non-orthogonality of the basis, which enter through the overlap matrix and the energy-weighted density matrix. These terms make analytic gradients harder to implement than for fixed-center methods, and they are a main reason floating-Gaussian methods were historically more difficult to program.
