@@ -145,6 +145,9 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 + J. L. Whitten, **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
 
++ J. F. Harrison **On the Gaussian‐Lobe Representation of Atomic Orbitals**, [J. Chem. Phys. 46, 1115–1118 (1967)](https://doi.org/10.1063/1.1840776)
+
+
 + A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
 
 + A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. II. One and Two Electron Pair Systems**, [J. Chem. Phys. 47, 3714 (1967)](https://doi.org/10.1063/1.1701525)
