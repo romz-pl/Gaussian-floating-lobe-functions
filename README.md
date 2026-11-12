@@ -140,6 +140,9 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 + J.L. Whitten, **Gaussian Expansion of Hydrogen Atom Wavefunctions**, [J. Chem. Phys. 39, 349–352 (1963)](https://doi.org/10.1063/1.1734251)
 
++ H. Sambe **Use of 1s Gaussian Wavefunctions for Molecular Calculations. I. The Hydrogen Atom and the Hydrogen Molecule Ion**, [J. Chem. Phys. 42, 1732–1738 (1965)](https://doi.org/10.1063/1.1696185)
+
+
 + J. L. Whitten, **Gaussian Lobe Function Expansions of Hartree—Fock Solutions for the FirstRow Atoms and Ethylene**, [J. Chem. Phys. 44, 359 (1966)](https://doi.org/10.1063/1.1726470)
 
 + A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
