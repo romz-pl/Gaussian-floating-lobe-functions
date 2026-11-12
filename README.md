@@ -94,8 +94,6 @@ $$
 \mathbf P = (\alpha \mathbf A + \beta \mathbf B) / \gamma
 $$
 
-and 
-
 $$
 K_{AB} = \exp \left( -\frac{\alpha\beta}{\gamma}|\mathbf A - \mathbf B|^2 \right)
 $$
