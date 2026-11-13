@@ -7,7 +7,7 @@ Radial basis function (RBF) methods approximate a function from scattered sample
 In its basic form, the Gaussian RBF interpolant is
 
 $$
-s(x) = \sum_{j=1}^{N} w_j \, \phi\!\left(\|x - c_j\|\right), \qquad \phi(r) = \exp\!\left(-\varepsilon^2 r^2\right),
+s(x) = \sum_{j=1}^{N} w_j  \phi \left(\|x - c_j\|\right), \qquad \phi(r) = \exp\left(-\varepsilon^2 r^2\right),
 $$
 
 where $c_j$ are the centers, $w_j$ are weights determined by the interpolation conditions, and $\varepsilon > 0$ is the shape parameter. The word *adaptive* refers to any mechanism that tunes this representation to the data or to the problem: the location of the centers, the number of centers, the shape parameter (globally or locally), the metric used to measure distance, or the kernel itself.
