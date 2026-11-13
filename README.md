@@ -18,6 +18,8 @@
 
 [Adaptive second order PDEs](./adaptive-second-order-pde.md)
 
+[Compactly Supported Radial Basis Functions](./rbf-compact-support.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
