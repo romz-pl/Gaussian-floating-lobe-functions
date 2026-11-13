@@ -38,7 +38,13 @@ $$
 f_\sigma - f = \frac{\sigma^2}{2}\Delta f + O(\sigma^4),
 $$
 
-so the error is second-order in the scale. More generally, for $f$ in a Sobolev space $H^s(\mathbb{R}^3)$ with $0 < s \le 2$, the $L^2$ error satisfies $\|f - f_\sigma\|_{L^2} \le C\,\sigma^s\,\|f\|_{H^s}$. The representation thus degrades gracefully: the rate of approximation is exactly the regularity of the function, and the scale parameter trades resolution for accuracy in a quantifiable way.
+so the error is second-order in the scale. More generally, for $f$ in a Sobolev space $H^s(\mathbb{R}^3)$ with $0 < s \le 2$, the $L^2$ error satisfies 
+
+$$
+\|f - f_\sigma \|_{L^2} \le C\,\sigma^s\,\|f\|_{H^s}
+$$
+
+The representation thus degrades gracefully: the rate of approximation is exactly the regularity of the function, and the scale parameter trades resolution for accuracy in a quantifiable way.
 
 Because $f_\sigma$ is an analytic function of $\mathbf{x}$ for every $\sigma > 0$, the approximation is smooth at all scales, even when $f$ itself is rough. The errors are controlled, and the smoothing is applied uniformly.
 
