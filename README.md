@@ -167,6 +167,11 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 + J.L. Whitten, **Gaussian Expansion of Hydrogen Atom Wavefunctions**, [J. Chem. Phys. 39, 349–352 (1963)](https://doi.org/10.1063/1.1734251)
 
 
+## 1964
+
++ J. R. Hoyland, **Many‐Center Wavefunctions for the Hydrogen Molecule and the Hydrogen Molecular Ion**, [J. Chem. Phys. 40, 3540–3547 (1964)](https://doi.org/10.1063/1.1725049)
+
+
 ### 1965
 
 + H. Sambe **Use of 1s Gaussian Wavefunctions for Molecular Calculations. I. The Hydrogen Atom and the Hydrogen Molecule Ion**, [J. Chem. Phys. 42, 1732–1738 (1965)](https://doi.org/10.1063/1.1696185)
