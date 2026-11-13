@@ -157,6 +157,10 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 + H. Preuss, **Über die Verwendung von Gauß-Funktionen in der Wellenmechanik (On the Use of Gaussian Functions in Wave Mechanics)**, [Zeitschrift für Naturforschung A, Volume 11a, Issue 10, Pages 823–831 (1956)](https://doi.org/0.1515/zna-1956-1007)
 
+### 1957
+
++ R. G. Parr, **1s Orbitals as Base Functions for Molecular Calculations**, [J. Chem. Phys. 26, 428 (1957)](https://doi.org/10.1063/1.1743320)
+
 
 ### 1963
 
