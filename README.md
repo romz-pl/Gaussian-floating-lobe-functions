@@ -1,3 +1,7 @@
+# Gaussian Radial Basis Functions
+
+[Radial Basis Functions for Solving PDEs](./radial-basis-functions-pde.md)
+
 # Off-Center Gaussian Basis Expansions in the Hartree-Fock Method
 
 ## Scope and Caveats
