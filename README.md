@@ -4,6 +4,8 @@
 
 [Application in the Hartree-Fock Method](./Gaussians-in-Hartree-Fock-Method.md)
 
+[Approximation by Gaussian Functions](./approximation-by-gaussians.md)
+
 
 
 
