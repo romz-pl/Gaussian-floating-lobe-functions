@@ -10,6 +10,8 @@
 
 [Adaptive Widths and Multiscale Dictionaries](./approximation-rates.md)
 
+[Applications of Adaptive Gaussian Kernels](./applications-adaptive.md)
+
 [Radial Basis Functions for Solving PDEs](./radial-basis-functions-pde.md)
 
 ## References
