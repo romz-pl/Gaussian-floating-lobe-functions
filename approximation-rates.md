@@ -29,7 +29,7 @@ $$
 where in the adaptive setting both the centers $y_k$ and the widths $\alpha_k$ are chosen depending on $f$. The best $n$-term error is
 
 $$
-\sigma_n(f)_{X} = \inf\Big\{\|f-f_n\|_{X} : f_n \text{ is an } n\text{-term combination from } \mathcal{D}\Big\},
+\sigma_n (f)_ {X} = \inf \Big( \|f-f_n\|_{X} : f_n \text{ is an } n\text{-term combination from } \mathcal{D} \Big),
 $$
 
 with $X$ the chosen error norm, typically $L_2$ or $L_\infty$ on $\Omega$. The rate question is how fast $\sigma_n(f)_X$ decays as $n\to\infty$, and how this depends on the smoothness of $f$ and on the dictionary.
@@ -65,7 +65,7 @@ Two classical lines of results frame the discussion.
 **Variation-norm (Barron-type) bounds.** For a fixed Gaussian dictionary, define the variation norm
 
 $$
-\|f\|_{\mathcal{G}_\alpha} = \inf\Big\{\sum_k |c_k| : f = \sum_k c_k\,\phi_{\alpha,y_k}\Big\}
+\|f\|_{\mathcal{G}_\alpha} = \inf\Big( \sum_k |c_k| : f = \sum_k c_k\,\phi_{\alpha,y_k} \Big)
 $$
 
 (with the infimum over finite or convergent representations). A Maurey-type sparsification argument then gives, for $f$ with finite variation norm, an $n$-term approximant with
@@ -89,7 +89,7 @@ These results motivate the question of what changes when the width is treated as
 Define the adaptive $n$-term error
 
 $$
-\sigma_n^{\mathrm{ad}}(f) = \inf\Big\{\|f-f_n\|_{L_2(\Omega)} : f_n = \sum_{k=1}^n c_k\,\phi_{\alpha_k,y_k},\ \alpha_k>0,\ y_k\in\mathbb{R}^3\Big\}.
+\sigma_n^{\mathrm{ad}}(f) = \inf\Big( \|f-f_n\|_{L_2(\Omega)} : f_n = \sum_{k=1}^n c_k\,\phi_{\alpha_k,y_k},\ \alpha_k>0,\ y_k\in\mathbb{R}^3\Big).
 $$
 
 Clearly $\sigma_n^{\mathrm{ad}}(f)\le\sigma_n(f)$ for any fixed-width dictionary, since fixed-width approximants are a special case. The adaptive problem is a nonlinear approximation problem in the sense of DeVore: the $n$-term approximants do not form a linear space, because both the centers and the widths are selected.
