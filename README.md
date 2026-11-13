@@ -6,6 +6,8 @@
 
 [Approximation by Gaussian Functions](./approximation-by-gaussians.md)
 
+[Adaptive Widths and Multiscale Dictionaries](./approximation-rates.md)
+
 
 
 
