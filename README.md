@@ -178,6 +178,9 @@ In practice, off-center Gaussian methods have been applied mainly in specialized
 
 ### 1967
 
++ M. E. Schwartz, L. J. Schaad, **Ab Initio Studies of Small Molecules Using 1s Gaussian Basis Functions. I. Exploratory Calculations**, [J. Chem. Phys. 46, 4112–4120 (1967)](https://doi.org/10.1063/1.1840493)
+
+
 + J. F. Harrison **On the Gaussian‐Lobe Representation of Atomic Orbitals**, [J. Chem. Phys. 46, 1115–1118 (1967)](https://doi.org/10.1063/1.1840776)
 
 + A. A. Frost, **Floating Spherical Gaussian Orbital Model of Molecular Structure. I. Computational Procedure. LiH as an Example**, [J. Chem. Phys. 47, 3707 (1967)](https://doi.org/10.1063/1.1701524)
