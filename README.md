@@ -14,6 +14,8 @@
 
 [Radial Basis Functions for Solving PDEs](./radial-basis-functions-pde.md)
 
+[Multiscale Representation in R^3](./multiscale-representation.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
