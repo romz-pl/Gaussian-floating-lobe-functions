@@ -16,6 +16,8 @@
 
 [Multiscale Representation in R^3](./multiscale-representation.md)
 
+[Adaptive second order PDEs](./adaptive-second-order-pde.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
