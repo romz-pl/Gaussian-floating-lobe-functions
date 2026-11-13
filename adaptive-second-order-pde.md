@@ -50,7 +50,19 @@ $$
 \sum_{j=1}^N c_j\, \mathcal{B}_x K_\sigma(x_i,x_j) = g(x_i), \qquad x_i \in X_{\partial\Omega},
 $$
 
-where $\mathcal{B}$ denotes the boundary operator. The resulting matrix $M \in \mathbb{R}^{N\times N}$ has entries $M_{ij} = \mathcal{L}_x K_\sigma(x_i,x_j)$ or $\mathcal{B}_x K_\sigma(x_i,x_j)$ depending on the row. For the Gaussian these derivatives are explicit. For instance, for the Laplacian, with $r = \|x-y\|_2$,
+where $\mathcal{B}$ denotes the boundary operator. The resulting matrix $M \in \mathbb{R}^{N\times N}$ has entries 
+
+$$
+M_{ij} = \mathcal{L}_x K_\sigma(x_i,x_j)
+$$
+
+or
+
+$$
+\mathcal{B}_x K_\sigma(x_i,x_j)
+$$
+
+depending on the row. For the Gaussian these derivatives are explicit. For instance, for the Laplacian, with $r = \|x-y\|_2$,
 
 $$
 \Delta_x K_\sigma(x,y) = \frac{r^2 - 3\sigma^2}{\sigma^4}\,K_\sigma(x,y).
@@ -60,7 +72,7 @@ The collocation matrix is asymmetric in general, which is the price of the simpl
 
 ### 3.2 Native space and stability
 
-The Gaussian kernel generates a reproducing kernel Hilbert space $\mathcal{N}_{K_\sigma}(\mathbb{R}^3)$. For a bounded domain, restrictions of this space carry a norm that equivalently controls Sobolev norms of order $\le$ a large integer, so the approximation is effectively in $C^\infty$ for smooth solutions. Stability is governed by the smallest eigenvalue of the interpolation matrix $K = [K_\sigma(x_i,x_j)]$, which decays super-exponentially in $N$ for fixed $\sigma$ and fixed spacing. Schaback's uncertainty principle states that one cannot simultaneously achieve high approximation accuracy and a well-conditioned matrix with a fixed kernel; the Gaussian is the extreme case where accuracy improves dramatically as $\sigma$ grows while stability deteriorates.
+The Gaussian kernel generates a reproducing kernel Hilbert space $\mathcal{N} _ {K_\sigma}(\mathbb{R}^3)$. For a bounded domain, restrictions of this space carry a norm that equivalently controls Sobolev norms of order $\le$ a large integer, so the approximation is effectively in $C^\infty$ for smooth solutions. Stability is governed by the smallest eigenvalue of the interpolation matrix $K = [K_\sigma(x_i,x_j)]$, which decays super-exponentially in $N$ for fixed $\sigma$ and fixed spacing. Schaback's uncertainty principle states that one cannot simultaneously achieve high approximation accuracy and a well-conditioned matrix with a fixed kernel; the Gaussian is the extreme case where accuracy improves dramatically as $\sigma$ grows while stability deteriorates.
 
 ### 3.3 Choosing the shape parameter
 
