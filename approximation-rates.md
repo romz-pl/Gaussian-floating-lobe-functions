@@ -1,4 +1,4 @@
-# Approximation Rates of Functions on $\mathbb{R}^3$ by Gaussian Functions: Adaptive Widths and Multiscale Dictionaries
+# Adaptive Widths and Multiscale Dictionaries
 
 ## 1. Setting and notation
 
