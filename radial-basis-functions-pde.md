@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-Radial basis function (RBF) methods are meshless numerical techniques for approximating functions and solving partial differential equations (PDEs). Instead of partitioning the domain into elements (finite elements) or a structured grid (finite differences), an RBF method works with a scattered set of nodes $\{\mathbf{x}_j\}_{j=1}^{N}$ in the domain $\Omega \subset \mathbb{R}^d$. The only geometric information required is the node locations and a notion of distance between them.
+Radial basis function (RBF) methods are meshless numerical techniques for approximating functions and solving partial differential equations (PDEs). Instead of partitioning the domain into elements (finite elements) or a structured grid (finite differences), an RBF method works with a scattered set of nodes $\Big( \mathbf{x} _ j \Big)_{j=1}^{N}$ in the domain $\Omega \subset \mathbb{R}^d$. The only geometric information required is the node locations and a notion of distance between them.
 
 The central idea is to approximate the unknown solution as a linear combination of translates of a single radially symmetric function, centred at the nodes:
 
