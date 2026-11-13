@@ -74,7 +74,13 @@ $$
 \|f - f_n\|_{L_2(\Omega)} \le \frac{C\,\|f\|_{\mathcal{G}_\alpha}}{\sqrt{n}}.
 $$
 
-This rate $n^{-1/2}$ is independent of the dimension $d=3$, which is the central attraction of this framework. The price is that the function class $\{f:\|f\|_{\mathcal{G}_\alpha}<\infty\}$ is defined through a fixed scale and is not a standard smoothness class. It contains functions that are smooth at scale $\sigma$ but says nothing about finer structure.
+This rate $n^{-1/2}$ is independent of the dimension $d=3$, which is the central attraction of this framework. The price is that the function class 
+
+$$
+\{f:\|f\|_{\mathcal{G}_\alpha}<\infty\}
+$$
+
+is defined through a fixed scale and is not a standard smoothness class. It contains functions that are smooth at scale $\sigma$ but says nothing about finer structure.
 
 **Classical RBF and Gaussian-network results.** Girosi and Anzellotti studied Gaussian radial basis approximation through Fourier-based smoothness conditions, and Maiorov and Meir analysed rates for Gaussian networks in Sobolev-type classes. These works establish that fixed-width Gaussian approximation can achieve algebraic rates, but the exponents are constrained by the fixed width and by how the smoothness of $f$ compares with the dictionary's implicit smoothness. Interpreted through Section 2, the saturation effect is what these analyses reveal: smoothness of $f$ beyond the dictionary's native class does not translate into faster rates.
 
