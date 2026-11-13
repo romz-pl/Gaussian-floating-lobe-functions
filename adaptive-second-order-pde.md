@@ -176,7 +176,7 @@ The residual is evaluated by applying $\mathcal{L}$ analytically to the Gaussian
 
 ### 6.3 Level-wise and cumulative estimates
 
-In a multilevel scheme, the residual decreases level by level. Let $\rho_\ell = \|f - \mathcal{L}s_\ell\|$. The per-level increments $\|t_\ell\|_{\mathcal{N}}$ estimate the contribution of each scale, and a geometric decay $\rho_{\ell+1} \le \gamma\,\rho_\ell$ with $\gamma < 1$ signals convergence. Stopping when $\rho_L \le \varepsilon\,\rho_0$, or when the increment $\|t_L\|$ falls below a tolerance, gives a computable termination criterion that does not require the exact solution. The residual at the finest level also indicates whether additional levels are needed in particular regions, which feeds directly into the marking step.
+In a multilevel scheme, the residual decreases level by level. Let $\rho_\ell = \|f - \mathcal{L}s_\ell\|$. The per-level increments $\|t _ \ell\|_ {\mathcal{N}}$ estimate the contribution of each scale, and a geometric decay $\rho _ {\ell+1} \le \gamma\,\rho _ \ell$ with $\gamma < 1$ signals convergence. Stopping when $\rho_L \le \varepsilon\,\rho_0$, or when the increment $\|t_L\|$ falls below a tolerance, gives a computable termination criterion that does not require the exact solution. The residual at the finest level also indicates whether additional levels are needed in particular regions, which feeds directly into the marking step.
 
 ### 6.4 A priori estimates
 
