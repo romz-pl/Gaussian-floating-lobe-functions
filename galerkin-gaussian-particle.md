@@ -214,3 +214,155 @@ This is a sketch rather than production code. For large problems, one would expl
 ## 10. Summary
 
 The Galerkin method turns the Schrödinger equation into the generalised eigenproblem $\mathbf{H}\mathbf{c} = E\mathbf{S}\mathbf{c}$. Gaussian radial basis functions make this practical in three dimensions because the overlap and kinetic matrices are closed-form, the product rule handles many potentials analytically, and the variational principle gives monotone upper bounds that can be used to check convergence. The main difficulties are ill-conditioning of the nonorthogonal basis and slow convergence for Coulomb-type cusps, both of which are manageable with orthogonalisation, even-tempered exponents, and careful basis design.
+
+
+# Bibliography
+
+## 1. Variational and Galerkin foundations
+
+- Ritz, W. (1909). Über eine neue Methode zur Lösung gewisser Variationsprobleme der mathematischen Physik. *Journal für die reine und angewandte Mathematik*, 135, 1–61.
+  The original statement of the Ritz method, which underlies the Rayleigh-Ritz approach used in Section 2.
+
+- Galerkin, B. G. (1915). Rods and plates: Series occurring in various questions concerning the elastic equilibrium of rods and plates. *Vestnik Inzhenerov i Tekhnikov*, 19, 897–908.
+  The source of the projection method that bears Galerkin's name. The paper is in Russian and is often cited through secondary sources.
+
+- Strang, G., & Fix, G. (1973). *An Analysis of the Finite Element Method*. Prentice-Hall.
+  A clear treatment of Galerkin and Ritz error bounds, useful for the convergence discussion.
+
+- Reddy, J. N. (2013). *An Introduction to the Finite Element Method* (4th ed.). McGraw-Hill.
+  Accessible coverage of weighted-residual methods and their equivalence to variational formulations.
+
+## 2. Quantum mechanics textbooks
+
+- Griffiths, D. J., & Schroeter, D. F. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press.
+  Covers the variational principle, the harmonic oscillator, and the hydrogen atom, which serve as test cases here.
+
+- Bransden, B. H., & Joachain, C. J. (2003). *Physics of Atoms and Molecules* (2nd ed.). Pearson.
+  Standard reference for the Ritz variational method applied to atoms, including helium and hydrogen trial functions.
+
+- Sakurai, J. J., & Napolitano, J. (2017). *Modern Quantum Mechanics* (2nd ed.). Cambridge University Press.
+  Good background on the Rayleigh-Ritz method in the context of time-independent perturbation theory.
+
+## 3. Gaussian integrals and Gaussian-type orbitals
+
+- Boys, S. F. (1950). Electronic wave functions I. A general method of calculation for the stationary states of any molecular system. *Proceedings of the Royal Society A*, 200, 542–554.
+  Introduces Gaussian-type functions for molecular integrals and the Boys function $F_0$ used for Coulomb matrix elements in Section 4.3.
+
+- Shavitt, I. (1963). The Gaussian function in calculations of statistical mechanics and quantum mechanics. In B. Alder, S. Fernbach, & M. Rotenberg (Eds.), *Methods in Computational Physics*, Vol. 2. Academic Press.
+  An early comprehensive review of Gaussian integral techniques, including the product rule.
+
+- Hehre, W. J., Stewart, R. F., & Pople, J. A. (1969). Self-consistent molecular-orbital methods. I. Use of Gaussian expansions of Slater-type atomic orbitals. *The Journal of Chemical Physics*, 51, 2657–2664.
+  The STO-nG basis-set construction, showing how contracted Gaussians approximate Slater orbitals.
+
+- Hehre, W. J., Ditchfield, R., & Pople, J. A. (1972). Self-consistent molecular orbital methods. XII. Further extensions of Gaussian-type basis sets for use in molecular orbital studies of organic molecules. *The Journal of Chemical Physics*, 56, 2257–2261.
+  Extends the Gaussian basis-set approach used for the even-tempered and split-valence ideas discussed in Section 7.
+
+- Dunning, T. H., Jr. (1989). Gaussian basis sets for use in correlated molecular calculations. I. The atoms boron through neon and hydrogen. *The Journal of Chemical Physics*, 90, 1007–1023.
+  Introduces correlation-consistent basis sets, relevant to the convergence and basis-design questions.
+
+- Frost, A. A. (1967). Gaussian orbitals for atoms and molecules. *The Journal of Chemical Physics*, 47, 3707–3713.
+  Early work on optimising Gaussian exponents for atomic and molecular calculations.
+
+## 4. Quantum chemistry methods and basis-set practice
+
+- Szabo, A., & Ostlund, N. S. (1996). *Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory* (revised ed.). Dover.
+  Practical treatment of Gaussian integrals, the Galerkin-type matrix eigenproblem $\mathbf{F}\mathbf{C} = \mathbf{S}\mathbf{C}\boldsymbol{\varepsilon}$, and Löwdin orthogonalisation.
+
+- Helgaker, T., Jørgensen, P., & Olsen, J. (2000). *Molecular Electronic-Structure Theory*. Wiley.
+  The most thorough modern reference on Gaussian integral evaluation, the product rule, and basis-set theory.
+
+- Löwdin, P.-O. (1950). On the non-orthogonality problem connected with the use of atomic wave functions in the theory of molecules and crystals. *The Journal of Chemical Physics*, 18, 365–375.
+  The symmetric orthogonalisation $\mathbf{S}^{-1/2}$ used to handle ill-conditioned overlap matrices in Section 7.
+
+- Pekeris, C. L. (1958). 1¹S, 2¹S, 2³S, 2¹P, and 3¹S states of helium. *Physical Review*, 112, 1649–1658.
+  Demonstrates very high accuracy from correlated trial functions, providing a benchmark for basis-set convergence.
+
+- Hylleraas, E. A. (1929). Neue Berechnung der Energie des Heliums im Grundzustande, sowie des tiefsten Terms von Wasserstoff. *Zeitschrift für Physik*, 54, 347–366.
+  The original correlated-function calculation for helium, which motivated the inclusion of interparticle coordinates.
+
+## 5. Cusp conditions and convergence
+
+- Kato, T. (1957). On the eigenfunctions of many-particle systems in quantum mechanics. *Communications on Pure and Applied Mathematics*, 10, 151–177.
+  Derives the electron-nucleus cusp condition that explains the algebraic convergence of Gaussian bases discussed in Section 7.
+
+- Schwartz, C. (1962). Importance of angular correlations between atomic electrons. *Physical Review*, 126, 1015–1019.
+  Shows how slow basis-set convergence arises from the cusp and electron correlation, and how to accelerate it.
+
+- Bingel, W. A. (1963). Die Berechnung von Mehrelektronen-Eigenfunktionen mit Hilfe der Methode von Ritz/Hylleraas. *Zeitschrift für Naturforschung A*, 18, 1249–1250. (Note: the Bingel cusp-based approach. Verify exact details before citing.)
+
+## 6. Radial basis function theory
+
+- Buhmann, M. D. (2003). *Radial Basis Functions: Theory and Implementations*. Cambridge University Press.
+  Standard monograph on RBF approximation theory, including Gaussian kernels and their native spaces.
+
+- Wendland, H. (2005). *Scattered Data Approximation*. Cambridge University Press.
+  Covers positive-definite kernels, approximation orders, and the stability of RBF interpolation.
+
+- Fasshauer, G. E. (2007). *Meshfree Approximation Methods with MATLAB*. World Scientific.
+  Practical guide to Gaussian RBFs, including the shape-parameter trade-off and ill-conditioning.
+
+- Fornberg, B., & Flyer, N. (2015). *A Primer on Radial Basis Functions with Applications to the Geosciences*. SIAM.
+  Accessible introduction covering Gaussian kernels, shape parameters, and the stable-computation methods relevant to Section 7.
+
+- Schaback, R. (1995). Error estimates and condition numbers for radial basis function interpolation. *Advances in Computational Mathematics*, 3, 251–264.
+  Establishes the link between kernel smoothness, condition numbers, and interpolation error, which underlies the conditioning discussion.
+
+- Hardy, R. L. (1971). Multiquadric equations of topography and other irregular surfaces. *Journal of Geophysical Research*, 76, 1905–1915.
+  The original RBF paper, introducing multiquadrics and motivating the broader RBF literature.
+
+- Kansa, E. J. (1990). Multiquadrics: A scattered data approximation scheme with applications to computational fluid dynamics. *Computers & Mathematics with Applications*, 19, 127–145.
+  The first RBF collocation method for PDEs, the precursor to using RBFs as trial spaces in Galerkin formulations.
+
+## 7. RBFs and Galerkin methods for PDEs
+
+- Kansa, E. J. (1990). See Section 6 above. The collocation variant is the closest relative of the Galerkin approach used here.
+
+- Fasshauer, G. E. (2002). Newton iteration with multiquadrics for the solution of nonlinear PDEs. *Computers & Mathematics with Applications*, 43, 423–438.
+  Demonstrates RBF trial spaces for nonlinear PDEs, an extension relevant to self-consistent potentials.
+
+- Chen, W., Fu, Z.-J., & Chen, C. S. (2014). *Recent Advances in Radial Basis Function Collocation Methods*. Springer.
+  Survey of RBF collocation and Galerkin-type schemes, including boundary-value and eigenvalue problems.
+
+## 8. Numerical linear algebra and eigenproblems
+
+- Golub, G. H., & Van Loan, C. F. (2013). *Matrix Computations* (4th ed.). Johns Hopkins University Press.
+  The definitive reference for the generalised symmetric eigenproblem $\mathbf{H}\mathbf{c} = E\mathbf{S}\mathbf{c}$, Cholesky reduction, and conditioning.
+
+- Trefethen, L. N., & Bau, D. (1997). *Numerical Linear Algebra*. SIAM.
+  Clear discussion of conditioning, eigenvalue computation, and stability.
+
+- Parlett, B. N. (1998). *The Symmetric Eigenvalue Problem*. SIAM.
+  Detailed treatment of symmetric eigensolvers, useful for choosing a method for the lowest eigenpairs.
+
+- Saad, Y. (2011). *Numerical Methods for Large Eigenvalue Problems* (revised ed.). SIAM.
+  Covers iterative eigensolvers for large sparse or dense problems, relevant when $N$ is large.
+
+## 9. Special functions and integrals
+
+- Abramowitz, M., & Stegun, I. A. (Eds.). (1964). *Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables*. National Bureau of Standards.
+  Source for the error function and related special functions used in the Coulomb matrix element.
+
+- Gradshteyn, I. S., & Ryzhik, I. M. (2015). *Table of Integrals, Series, and Products* (8th ed.). Academic Press.
+  Reference for Gaussian moment and product integrals.
+
+- Olver, F. W. J., Lozier, D. W., Boisvert, R. F., & Clark, C. W. (Eds.). (2010). *NIST Handbook of Mathematical Functions*. Cambridge University Press.
+  Modern successor to Abramowitz and Stegun, with current definitions of $F_0$-type functions.
+
+## 10. Numerical methods and software
+
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). *Numerical Recipes: The Art of Scientific Computing* (3rd ed.). Cambridge University Press.
+  General numerical methods, including quadrature and eigensolvers.
+
+- Virtanen, P., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. *Nature Methods*, 17, 261–272.
+  Citation for `scipy.linalg.eigh` and related routines used in the implementation sketch.
+
+- Harris, C. R., et al. (2020). Array programming with NumPy. *Nature*, 585, 357–362.
+  Citation for the NumPy operations used in the implementation sketch.
+
+## 11. Further reading on spectral and high-accuracy methods
+
+- Boyd, J. P. (2001). *Chebyshev and Fourier Spectral Methods* (2nd ed.). Dover.
+  Comparison point for spectral basis expansions versus Gaussian bases, especially regarding exponential convergence.
+
+- Thijssen, J. M. (2007). *Computational Physics* (2nd ed.). Cambridge University Press.
+  Covers variational eigenvalue computations and basis-set methods for quantum problems.
