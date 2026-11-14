@@ -136,7 +136,7 @@ Expectation values follow directly: $\langle \hat{O} \rangle = \mathbf{c}^{\ast}
 When $V$ has no closed form, use a product quadrature. Two common options:
 
 - **Gauss-Hermite in each Cartesian direction** centred on each product point $\mathbf{P}_{ij}$. Because the integrand is a Gaussian times a smooth function, a modest number of nodes gives high accuracy.
-- **A fixed 3D grid** with the basis evaluated on the grid, so that $\mathbf{V}$ is a weighted sum $\sum_g w_g \varphi_i(\mathbf{r}_g)\, V(\mathbf{r}_g)\, \varphi_j(\mathbf{r}_g)$. This is simple and scales well with $N$ when the basis is stored as a matrix $\Phi_{gi}$, since $\mathbf{V} = \Phi^{\mathsf{T}} \mathrm{diag}(w \cdot V) \Phi$.
+- **A fixed 3D grid** with the basis evaluated on the grid, so that $\mathbf{V}$ is a weighted sum $\sum_g w_g \varphi_i(\mathbf{r} _ g)\, V(\mathbf{r} _ g)\, \varphi _ j(\mathbf{r} _ g)$. This is simple and scales well with $N$ when the basis is stored as a matrix $\Phi_{gi}$, since $\mathbf{V} = \Phi^{\mathsf{T}} \mathrm{diag}(w \cdot V) \Phi$.
 
 ## 7. Numerical issues
 
