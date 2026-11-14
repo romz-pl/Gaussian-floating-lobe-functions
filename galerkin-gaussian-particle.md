@@ -104,8 +104,15 @@ $$
 
 **Coulomb potentials.** For $V = -Z/r$ (with the nucleus at the origin), the Boys-type integral gives
 
+
+
 $$
-\left\langle \varphi_i \left| \frac{1}{r} \right| \varphi_j \right\rangle = \frac{2\pi}{p_{ij}}\, K_{ij}\, F_0\!\left(p_{ij}|\mathbf{P}_{ij}|^2\right), \qquad F_0(t) = \int_0^1 e^{-t u^2} du = \frac{\sqrt{\pi}}{2}\frac{\operatorname{erf}(\sqrt{t})}{\sqrt{t}}.
+\left\langle \varphi_i \left| \frac{1}{r} \right| \varphi_j \right\rangle = 
+\frac{2\pi}{p_{ij}} K_{ij} F_0 \left(p_{ij}|\mathbf{P}_{ij}|^2\right),
+$$
+
+$$
+\qquad F_0(t) = \int_0^1 e^{-t u^2} du = \frac{\sqrt{\pi}}{2}\frac{\{erf}(\sqrt{t})}{\sqrt{t}}.
 $$
 
 Setting $\mathbf{R}_i = \mathbf{R}_j = 0$ recovers $2\pi/p$, which matches $\int e^{-pr^2}/r\, d^3r = 2\pi/p$.
