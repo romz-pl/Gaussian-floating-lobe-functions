@@ -24,6 +24,8 @@
 
 [Schrödinger One Particle Problem](./particle-in-potential.md)
 
+[Schrödinger One Particle Problem: Galerkin, Gaussians](./galerkin-gaussian-particle.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
