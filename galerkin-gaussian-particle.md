@@ -216,6 +216,265 @@ This is a sketch rather than production code. For large problems, one would expl
 The Galerkin method turns the Schrödinger equation into the generalised eigenproblem $\mathbf{H}\mathbf{c} = E\mathbf{S}\mathbf{c}$. Gaussian radial basis functions make this practical in three dimensions because the overlap and kinetic matrices are closed-form, the product rule handles many potentials analytically, and the variational principle gives monotone upper bounds that can be used to check convergence. The main difficulties are ill-conditioning of the nonorthogonal basis and slow convergence for Coulomb-type cusps, both of which are manageable with orthogonalisation, even-tempered exponents, and careful basis design.
 
 
+# Hierarchies of Gaussian Functions for High-Accuracy Eigenvalues and Eigenfunctions
+
+This document extends *Solving the 3D Schrödinger Eigenvalue Problem with Gaussian RBFs (Galerkin / Rayleigh-Ritz)*. It assumes the notation and matrix elements established there: the basis $\varphi_i(\mathbf{r}) = \exp(-\alpha_i |\mathbf{r} - \mathbf{R}_i|^2)$, the matrices $\mathbf{S}$, $\mathbf{T}$ and $\mathbf{V}$, and the generalised eigenproblem $\mathbf{H}\mathbf{c} = E\,\mathbf{S}\mathbf{c}$.
+
+The central idea is simple. A single Gaussian can only approximate a wavefunction well over a limited range of length scales. A hierarchy of Gaussians with exponents spanning many orders of magnitude, combined with optimised exponents, can represent the nucleus-region cusp, the intermediate shell structure, and the far-field decay at once. The result is a sequence of nested variational spaces whose eigenvalues converge monotonically from above.
+
+## 1. The hierarchy
+
+### 1.1 Nested subspaces
+
+Let $\mathcal{V}_1 \subset \mathcal{V}_2 \subset \cdots$ be a sequence of basis sets, where $\mathcal{V}_k$ is spanned by $N_k$ Gaussians and each level contains all functions from the previous level. Denote by $E_n^{(k)}$ the $n$-th eigenvalue at level $k$. The Hylleraas-Undheim-MacDonald theorem gives
+
+$$
+E_n^{(k+1)} \leq E_n^{(k)}, \qquad E_n^{(k)} \geq E_n \quad \text{for all } k,
+$$
+
+where $E_n$ is the exact level. Two consequences matter in practice. First, every level is a rigorous upper bound, so the sequence can be monitored without knowing the exact answer. Second, the differences $E_n^{(k)} - E_n^{(k+1)}$ provide an empirical error estimate that is trustworthy as long as the sequence is still decreasing.
+
+### 1.2 Tempering families
+
+The usual way to generate the exponents of a level is a geometric progression. Three families are common:
+
+**Even-tempered.** $\alpha_j = \alpha_0\, \beta^{\,j}$ for $j = 0, \dots, N-1$. There are only two free parameters, $\alpha_0$ and $\beta$, which keeps optimisation cheap. The exponents cover a range of about $\beta^{N}$ in scale, so increasing $N$ at fixed $\beta$ extends both the compact and the diffuse regions.
+
+**Well-tempered.** A two-parameter family, usually with a different growth law in the tail, designed so that the exponent spacing is finer where the wavefunction varies most. It is a practical modification of the even-tempered form when a single ratio $\beta$ is too coarse near the nucleus.
+
+**Generalised or hybrid hierarchy.** Exponents are grouped in blocks, each block an even-tempered series with its own ratio. For example, a compact block for the core, a shell block for the valence region, and a diffuse block for the tail. Each block can be optimised separately, which is the natural choice when the eigenfunction has several distinct length scales.
+
+For high accuracy the even-tempered form is a good starting point, and a hybrid hierarchy is the usual refinement once the ground state has been converged to a few digits.
+
+### 1.3 Refinement within a hierarchy
+
+Given a converged level $k$, the next level can be built in three ways:
+
+1. **Add exponents between existing ones.** Insert $\alpha_{j+1/2} = \sqrt{\alpha_j\alpha_{j+1}}$ to halve the logarithmic spacing. This is the most conservative refinement and preserves the existing optimum.
+2. **Extend the range.** Add exponents above the largest or below the smallest, to capture the tail or the cusp more fully.
+3. **Add new centres.** For molecular or non-central problems, add functions at additional centres. For a central potential this is usually unnecessary.
+
+Each refinement strictly enlarges the subspace, so the new eigenvalues are no higher than the old ones. Re-optimising the exponents after each refinement often gives a larger improvement than adding functions alone.
+
+## 2. Angular structure and excited states
+
+### 2.1 Why s-functions are not enough
+
+An s-type Gaussian $e^{-\alpha r^2}$ is spherically symmetric. It can describe $l=0$ states but cannot represent a $p$, $d$ or higher state, whose wavefunction has a nodal angular dependence. The minimum requirement for a $p$ state is a set of functions proportional to $z\, e^{-\alpha r^2}$ and the analogous $x$- and $y$-type functions. Similarly, $d$ states need $x^2 - y^2$-type or $z^2 - r^2/3$-type functions.
+
+### 2.2 Generating $p$, $d$ and higher functions by differentiation
+
+A convenient route to higher angular momentum uses the centre-derivative identity for a displaced s-Gaussian. Since
+
+$$
+\frac{\partial}{\partial A_z}\, e^{-a|\mathbf{r}-\mathbf{A}|^2} = 2a\,(z - A_z)\, e^{-a|\mathbf{r}-\mathbf{A}|^2},
+$$
+
+a $p_z$-type function at the origin is obtained as $z\,e^{-a r^2} = (2a)^{-1}\,\partial_{A_z} e^{-a|\mathbf{r}-\mathbf{A}|^2}\big|_{\mathbf{A}=0}$. Matrix elements between $p$-type functions then follow by differentiating the s-type closed forms with respect to the two centres. Higher-order derivatives produce $d$, $f$ and higher Cartesian Gaussians. Libraries typically use recursion relations (Obara-Saika or McMurchie-Davidson) instead of explicit differentiation, because the recursions scale better and avoid cancellation.
+
+### 2.3 Restricting to the symmetry sector
+
+For a central potential, $\mathbf{L}^2$ and $L_z$ commute with $\hat{H}$. The basis can therefore be split into angular-momentum blocks, and each block is diagonalised separately. An $l$-block contains only functions of angular type $l$, which reduces the matrix size and avoids spurious mixing. This is the standard way to obtain the lowest state in each channel to high accuracy.
+
+## 3. Optimising the exponents
+
+### 3.1 The variational objective
+
+For a fixed set of centres, the energy of the lowest eigenvalue is a function of the exponents $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_N)$. Minimising $E(\boldsymbol{\alpha})$ is a nonlinear variational problem. The result is always an upper bound, so there is no risk of overshooting the exact energy.
+
+### 3.2 Analytic gradient
+
+Let $\mathbf{c}$ be the normalised eigenvector, $\mathbf{c}^{\ast}\mathbf{S}\mathbf{c} = 1$. The Hellmann-Feynman theorem for the generalised problem gives
+
+$$
+\frac{\partial E}{\partial \alpha_k} = \mathbf{c}^{\ast}\!\left( \frac{\partial \mathbf{H}}{\partial \alpha_k} - E\,\frac{\partial \mathbf{S}}{\partial \alpha_k} \right)\mathbf{c}.
+$$
+
+Because $\partial\mathbf{H}/\partial\alpha_k$ and $\partial\mathbf{S}/\partial\alpha_k$ are obtained by differentiating the closed-form matrix elements, the gradient costs roughly the same as one matrix assembly. This makes quasi-Newton optimisers (BFGS, L-BFGS) practical for bases with tens of exponents.
+
+### 3.3 Parametrisation and conditioning
+
+Optimise $\log\alpha_k$ rather than $\alpha_k$. This enforces positivity and balances the wide dynamic range of the exponents. For the even-tempered family, only $\log\alpha_0$ and $\log\beta$ are needed. When a basis becomes nearly linearly dependent, the gradient is dominated by noise, so the optimisation should stop, or the offending function should be removed.
+
+### 3.4 Stochastic and greedy strategies
+
+For large or irregular bases, a stochastic variational method (SVM) is often more effective than gradient descent alone. New exponents are drawn at random over a suitable range, and a candidate is accepted only if it lowers the energy. This "add the best random Gaussian" procedure is greedy, but it explores the exponent landscape better than a fixed geometric grid when the eigenfunction has nonuniform structure. Explicitly correlated Gaussians, which include inter-particle distances in the exponent, extend the same idea to few-body problems.
+
+## 4. Convergence behaviour and extrapolation
+
+### 4.1 Rates
+
+Gaussian bases converge more slowly than polynomial or Chebyshev bases for smooth problems, but they are far more practical in three dimensions. The convergence rate depends on the singularity structure:
+
+- For smooth potentials and eigenfunctions with no cusp, the energy error falls quickly with basis size.
+- For Coulomb problems, the cusp at $r = 0$ limits convergence. The energy error decreases algebraically with the number of functions in a naive basis, but tempered expansions with well-optimised exponents convert this into a much faster, approximately exponential-type decay in the number of functions. The exact rate is problem-dependent, so it should be measured for each system rather than assumed.
+
+### 4.2 Practical error estimates
+
+For a sequence of levels $E^{(k)}$ with basis sizes $N_k$, use:
+
+- **Successive differences.** $\Delta_k = E^{(k)} - E^{(k+1)}$. A trustworthy estimate of the remaining error requires $\Delta_k$ to decrease steadily; a sudden plateau often indicates a basis deficiency rather than convergence.
+- **Extrapolation.** If the errors fall geometrically, $\Delta_k \approx C\,\rho^{k}$, then the limit can be estimated as $E_\infty \approx E^{(k+1)} - \Delta_{k+1}\,\rho/(1-\rho)$ with $\rho$ fitted from the last few differences. This is a heuristic; it should be checked against an independently converged result when possible.
+- **Comparison across families.** Converge the same quantity with two different tempering families. Agreement to the expected number of digits is strong evidence of convergence.
+
+### 4.3 Expected accuracy
+
+Well-optimised even-tempered or hybrid Gaussian expansions with a few tens of functions have been reported to reproduce light-atom ground-state energies to high relative accuracy. The precise accuracy depends on the system, the number of functions, and the optimisation effort, and should be established for each calculation through the convergence tests above rather than taken from a table.
+
+## 5. Accuracy of eigenfunctions
+
+### 5.1 Energy versus wavefunction error
+
+The energy error is quadratic in the wavefunction error. If the trial function differs from the exact eigenfunction by $\delta\psi$ with $\|\delta\psi\| = \epsilon$, then $E - E_{\text{exact}} = O(\epsilon^2)$. The consequence is that an energy converged to $10^{-8}$ can be accompanied by a wavefunction that is accurate to only $10^{-4}$ in the $L^2$ norm. Eigenfunction accuracy must therefore be checked separately.
+
+### 5.2 Residual-based diagnostics
+
+Compute the residual in the Galerkin sense:
+
+$$
+\mathbf{r} = (\mathbf{H} - E\,\mathbf{S})\mathbf{c}.
+$$
+
+For an exact solution in the basis, $\mathbf{r} = \mathbf{0}$. A small residual indicates a good eigenvector within the subspace, but it does not prove that the subspace contains the exact eigenfunction. Use it together with the convergence tests of Section 4.
+
+### 5.3 The cusp condition
+
+For a Coulomb potential $-Z/r$ with a nucleus at the origin, the exact s-wave eigenfunction satisfies the Kato cusp condition
+
+$$
+\left.\frac{1}{\psi}\frac{\partial \psi}{\partial r}\right|_{r=0} = -Z.
+$$
+
+Evaluate the left-hand side from the expansion, using $\partial_r \varphi_i = -2\alpha_i r\,\varphi_i$ for the s-functions, which gives $\partial_r \psi\,|_{r=0} = 0$ term by term. This means the expansion cannot satisfy the cusp condition for any finite set of Gaussians with the standard form, and the discrepancy is a direct measure of basis incompleteness near the nucleus. Tracking how the cusp mismatch decreases with the number of tight (large-$\alpha$) functions is a useful eigenfunction convergence test. Remedies include adding functions that vanish at the origin, such as $r\,e^{-\alpha r^2}$-type functions for odd-parity pieces, or explicitly correlated functions that include $r$ linearly, $e^{-\alpha r + \dots}$-type behaviour in the trial space.
+
+### 5.4 Virial test
+
+For a Coulomb problem with $\hat{H} = \hat{T} - Z/r$, the exact eigenstates satisfy the virial theorem $2\langle \hat{T} \rangle + \langle \hat{V} \rangle = 0$, which gives $\langle \hat{T}\rangle = -E$ and $\langle \hat{V}\rangle = 2E$. Evaluate both expectation values from $\mathbf{c}$ and compute
+
+$$
+\eta = \frac{2\langle \hat{T}\rangle + \langle \hat{V}\rangle}{|\langle \hat{V}\rangle|}.
+$$
+
+The quantity $\eta$ vanishes for the exact eigenfunction. Its size in the approximate solution is an independent check on both energy and wavefunction quality, and it is sensitive to the same basis deficiencies as the cusp test.
+
+### 5.5 Expectation values
+
+Any observable with a matrix representation gives an expectation value $\langle \hat{O}\rangle = \mathbf{c}^{\ast}\mathbf{O}\mathbf{c}$. Expectation values that weight the nucleus region, such as $\langle \delta(\mathbf{r}) \rangle$ or $\langle 1/r \rangle$, converge more slowly than the energy and are the most demanding test of eigenfunction quality. Report them with the convergence data alongside the energy.
+
+## 6. Numerical stability at high accuracy
+
+### 6.1 Canonical orthogonalisation
+
+For large hierarchies the overlap matrix becomes nearly singular, and the naive generalised eigenproblem loses digits rapidly. Use the eigendecomposition $\mathbf{S} = \mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^{\ast}$, discard the eigenvalues below a threshold $\lambda_{\min}$, and form $\mathbf{X} = \mathbf{U}_{\text{kept}}\boldsymbol{\Lambda}_{\text{kept}}^{-1/2}$. The reduced problem $\mathbf{X}^{\ast}\mathbf{H}\mathbf{X}\,\mathbf{y} = E\,\mathbf{y}$ is a standard eigenproblem, and the eigenvectors in the original basis are $\mathbf{c} = \mathbf{X}\mathbf{y}$. The threshold should be chosen by checking that the lowest eigenvalues are insensitive to it.
+
+### 6.2 Precision
+
+Double precision is often insufficient once the condition number of $\mathbf{S}$ exceeds about $10^{12}$. In that regime, cancellation in $\mathbf{H}$ and $\mathbf{S}$ limits the attainable accuracy regardless of the eigensolver. Options include quadruple or arbitrary-precision arithmetic for the matrix assembly and eigensolve, or reducing the condition number by a better choice of exponents. Precision requirements should be established by repeating the calculation at two precisions and comparing.
+
+### 6.3 Incremental construction
+
+When levels are nested, the matrices of the previous level can be reused. Only the new rows and columns need to be computed, and the Cholesky factor or the canonical transformation can be updated rather than recomputed. This matters when the hierarchy has many levels.
+
+## 7. A protocol for high-accuracy calculations
+
+1. **Choose the problem class.** Determine the symmetry sector (for example $l=0$ or $l=1$) and the potential form.
+2. **Build level 1.** A small even-tempered s-set, optimised for the ground state, gives a baseline energy and a rough length scale.
+3. **Refine the hierarchy.** Double the number of exponents by inserting geometric midpoints, and re-optimise. Repeat until successive energy differences fall below the target.
+4. **Add angular functions.** For excited or non-s states, add the appropriate $p$, $d$ or higher functions in the relevant symmetry block.
+5. **Monitor convergence.** Track $\Delta_k$, extrapolate, and compare two tempering families.
+6. **Check the eigenfunction.** Compute the residual, the cusp mismatch, the virial ratio $\eta$, and the expectation values of interest.
+7. **Verify numerical stability.** Repeat the final level with a different canonical threshold and, if needed, a higher precision. The eigenvalues should agree to the claimed number of digits.
+8. **Report.** Give the basis size, tempering parameters, final energies with their convergence estimates, and the eigenfunction diagnostics.
+
+## 8. Code: even-tempered hierarchy for an s-state
+
+The following code applies to the hydrogen-like Coulomb problem $\hat{H} = -\tfrac{1}{2}\nabla^2 - Z/r$ in atomic units, using s-type Gaussians centred at the origin. The matrix elements are
+
+$$
+S_{ij} = \left(\frac{\pi}{p}\right)^{3/2}, \qquad T_{ij} = \frac{3\alpha_i\alpha_j}{p}\left(\frac{\pi}{p}\right)^{3/2}, \qquad V_{ij} = -Z\,\frac{2\pi}{p}, \qquad p = \alpha_i + \alpha_j.
+$$
+
+```python
+import numpy as np
+from scipy.linalg import eigh
+from scipy.optimize import minimize
+
+def s_matrices(alpha, Z=1.0):
+    """Overlap, kinetic and Coulomb matrices for s-Gaussians at the origin (a.u.)."""
+    a = alpha[:, None]
+    b = alpha[None, :]
+    p = a + b
+    S = (np.pi / p) ** 1.5
+    T = 3.0 * a * b / p * (np.pi / p) ** 1.5
+    V = -Z * 2.0 * np.pi / p
+    return S, T, V
+
+def solve(alpha, Z=1.0, n_states=1, thresh=1e-12):
+    """Generalised eigenproblem with canonical orthogonalisation."""
+    S, T, V = s_matrices(alpha, Z)
+    lam, U = np.linalg.eigh(S)
+    keep = lam > thresh * lam.max()
+    X = U[:, keep] / np.sqrt(lam[keep])
+    E, Y = np.linalg.eigh(X.T @ (T + V) @ X)
+    C = X @ Y                      # eigenvectors in the original basis
+    return E[:n_states], C[:, :n_states], alpha
+
+def even_tempered(params, N):
+    a0, beta = np.exp(params)
+    return a0 * beta ** np.arange(N)
+
+def energy_et(params, N, Z):
+    alpha = even_tempered(params, N)
+    E, _, _ = solve(alpha, Z)
+    return E[0]
+
+def optimise_et(N, Z=1.0, x0=(np.log(0.1), np.log(2.5))):
+    res = minimize(energy_et, x0=np.array(x0), args=(N, Z), method="Nelder-Mead",
+                   options={"xatol": 1e-10, "fatol": 1e-14, "maxiter": 20000})
+    return res.fun, even_tempered(res.x, N)
+
+if __name__ == "__main__":
+    Z = 1.0
+    exact = -0.5 * Z**2
+    prev = None
+    for N in range(2, 21, 2):
+        E, alpha = optimise_et(N, Z)
+        diff = None if prev is None else prev - E
+        print(f"N={N:2d}  E={E:.10f}  err={E - exact:.3e}  "
+              f"dE={'-' if diff is None else f'{diff:.2e}'}")
+        prev = E
+
+    # Eigenfunction diagnostics for the largest basis
+    E, C, alpha = solve(alpha, Z)
+    c = C[:, 0]
+    S, T, V = s_matrices(alpha, Z)
+    Ekin = c @ T @ c
+    Epot = c @ V @ c
+    print("virial ratio eta =", (2 * Ekin + Epot) / abs(Epot))
+```
+
+Notes on the code:
+
+- The energy and eigenvector are obtained through canonical orthogonalisation, so the near-linear dependence of tightly spaced exponents does not produce spurious energies.
+- The Nelder-Mead optimisation is simple and robust for two parameters. For larger, non-tempered exponent sets, replace it with BFGS using the gradient in Section 3.2.
+- Double precision limits the attainable accuracy for large $N$. Repeat the final calculation with higher precision before reporting digits beyond the third or fourth.
+- For $p$-states, extend the basis with $z\,e^{-\alpha r^2}$-type functions using the derivative construction of Section 2.2, and solve in the $l=1$ block.
+
+## 9. Limitations and alternatives
+
+The hierarchy of Gaussians is a practical and rigorous method, but it has limits:
+
+- Gaussians do not reproduce the cusp, so high accuracy for nucleus-sensitive quantities requires either very large bases or cusp-adapted functions.
+- For few-body systems with strong inter-particle correlation, explicitly correlated Gaussians (ECGs), which include inter-particle distances in the exponent, converge far faster than single-centre bases. Stochastic variational methods are the standard approach for these systems.
+- For many-body systems, Gaussian bases become expensive because the number of integrals grows rapidly with the number of centres, and grid or spectral methods can be more efficient.
+- Hylleraas-type bases, which include explicit powers of the inter-particle distance, remain the benchmark for two-electron atoms, and Gaussian results should be validated against them where available.
+
+The method is best suited to systems where a few digits of accuracy are needed for many states, where the potential is smooth or Coulombic, and where the eigenfunction is needed as an analytic expansion for further matrix elements.
+
+## 10. Summary
+
+A hierarchy of Gaussian functions gives a rigorous upper-bound sequence of approximations to the eigenvalues. High accuracy comes from tempered exponent sets spanning the relevant length scales, nonlinear optimisation of the exponents using analytic gradients, angular functions for non-s states, and careful numerical treatment of the nearly singular overlap matrix. Eigenfunction accuracy must be checked separately from energy accuracy, using residuals, the Kato cusp condition, the virial ratio, and expectation values of nucleus-sensitive observables. With these checks in place, the hierarchy delivers eigenvalues and eigenfunctions whose accuracy is established by the convergence data themselves rather than assumed.
+
 # Bibliography
 
 ## 1. Variational and Galerkin foundations
