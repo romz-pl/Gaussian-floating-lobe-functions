@@ -22,6 +22,8 @@
 
 [Eigenvalue Problems in Three Dimensions](./eigenvalue-problem.md)
 
+[Schrödinger One Particle Problem](./particle-in-potential.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
