@@ -232,7 +232,7 @@ $$
 E_n^{(k+1)} \leq E_n^{(k)}, \qquad E_n^{(k)} \geq E_n \quad \text{for all } k,
 $$
 
-where $E_n$ is the exact level. Two consequences matter in practice. First, every level is a rigorous upper bound, so the sequence can be monitored without knowing the exact answer. Second, the differences $E_n^{(k)} - E_n^{(k+1)}$ provide an empirical error estimate that is trustworthy as long as the sequence is still decreasing.
+where $E_n$ is the exact level. Two consequences matter in practice. First, every level is a rigorous upper bound, so the sequence can be monitored without knowing the exact answer. Second, the differences $E_{n}^{(k)} - E_{n}^{(k+1)}$ provide an empirical error estimate that is trustworthy as long as the sequence is still decreasing.
 
 ### 1.2 Tempering families
 
