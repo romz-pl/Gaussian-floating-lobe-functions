@@ -20,6 +20,8 @@
 
 [Compactly Supported Radial Basis Functions](./rbf-compact-support.md)
 
+[Eigenvalue Problems in Three Dimensions](./eigenvalue-problem.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
