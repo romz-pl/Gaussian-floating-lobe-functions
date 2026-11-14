@@ -94,7 +94,7 @@ $$
 \mathbf{A}\mathbf{c} = \lambda\, \mathbf{B}\mathbf{c},
 $$
 
-where $\mathbf{A}_{ij} = -(\nabla^2\phi_j)(x_i)$ for interior rows and $\mathbf{A}_{bj} = \phi_j(x_b)$ for boundary rows, and $\mathbf{B}_{ij} = \phi_j(x_i)$ for interior rows with zeros in the boundary rows. The matrix $\mathbf{B}$ is therefore rectangular-in-structure but square overall and singular, because its boundary rows vanish. This singularity produces infinite eigenvalues, which must be discarded.
+where $\mathbf{A} _ {ij} = -(\nabla^2\phi_j)(x_i)$ for interior rows and $\mathbf{A} _ {bj} = \phi_j(x_b)$ for boundary rows, and $\mathbf{B}_{ij} = \phi_j(x_i)$ for interior rows with zeros in the boundary rows. The matrix $\mathbf{B}$ is therefore rectangular-in-structure but square overall and singular, because its boundary rows vanish. This singularity produces infinite eigenvalues, which must be discarded.
 
 The resulting matrices are nonsymmetric and dense. The method is simple to implement and works for arbitrary geometry and arbitrary boundary conditions, but it carries no variational guarantee: the eigenvalues may be complex, and spurious modes are common (Section 6).
 
