@@ -24,9 +24,11 @@
 
 [Schrödinger One Particle Problem](./particle-in-potential.md)
 
-[Schrödinger One Particle Problem: Gaussians  Type Orbitals](./galerkin-gaussian-particle.md)
+[Schrödinger One Particle Problem: GTO](./galerkin-gaussian-particle.md)
 
-[Schrödinger One Particle Problem: Slater Type Orbitals](./slater-type-orbitals.md)
+[Schrödinger One Particle Problem: STO, one center](./slater-type-orbitals.md)
+
+[Schrödinger One Particle Problem: STO, multi center](./slater-type-orbitals-multi.md)
 
 ## References
 
