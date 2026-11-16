@@ -22,6 +22,8 @@
 
 [Eigenvalue Problems in Three Dimensions](./eigenvalue-problem.md)
 
+[Hybrid gausslet/Gaussian basis sets](https://arxiv.org/pdf/2103.02734v1)
+
 ### Schrödinger One Particle Problem
 
 + [Theory](./particle-in-potential.md)
