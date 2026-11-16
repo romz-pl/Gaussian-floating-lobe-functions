@@ -22,13 +22,17 @@
 
 [Eigenvalue Problems in Three Dimensions](./eigenvalue-problem.md)
 
-[Schrödinger One Particle Problem](./particle-in-potential.md)
+### Schrödinger One Particle Problem
 
-[Schrödinger One Particle Problem: GTO](./galerkin-gaussian-particle.md)
++ [Theory](./particle-in-potential.md)
 
-[Schrödinger One Particle Problem: STO, one center](./slater-type-orbitals.md)
++ [Gauusian Type Orbitals](./galerkin-gaussian-particle.md)
 
-[Schrödinger One Particle Problem: STO, multi center](./slater-type-orbitals-multi.md)
++ [Slater Type Orbitals, one center](./slater-type-orbitals.md)
+
++ [Slater Type Orbitals, multi center](./slater-type-orbitals-multi.md)
+
++ [Slater Type Orbitals, special case](./slater-type-orbitals-special.md)
 
 ## References
 
