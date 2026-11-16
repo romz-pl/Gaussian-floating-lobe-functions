@@ -53,7 +53,7 @@ $$
 and the combined normalization $N_{ab} = N_a N_b$. Every radial integrand that appears has the form $r^{q}e^{-pr}$ multiplied by a polynomial prefactor, and the only integral needed is the Laplace-type master integral
 
 $$
-J_q(p) = \int_0^\infty r^{q}\, e^{-pr}\, dr = \frac{\Gamma(q+1)}{p^{\,q+1}} = \frac{q!}{p^{\,q+1}}, \qquad \operatorname{Re}\,p > 0,\ q > -1 .
+J_q(p) = \int_0^\infty r^{q}\, e^{-pr}\, dr = \frac{\Gamma(q+1)}{p^{\,q+1}} = \frac{q!}{p^{\,q+1}}, \qquad \text{Re}\,p > 0,\ q > -1 .
 $$
 
 The volume element for an S-type integrand is $d^3\mathbf r = r^2\,dr\,d\Omega$, and the angular integral of $Y_{00}^2$ equals one. Therefore all radial integrals carry an extra factor $r^2$.
