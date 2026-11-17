@@ -1,5 +1,7 @@
 # Hartree-Fock with Confined Numerical Atomic Orbitals with Zero Condition and Spherical Gaussians
 
+[Hartree-Fock Limit for Energies in Solids](https://arxiv.org/pdf/2606.20116)
+
 ## 1. Scope and motivation
 
 This document describes a mixed-basis Hartree-Fock (HF) method. The one-electron space is spanned by two kinds of functions:
