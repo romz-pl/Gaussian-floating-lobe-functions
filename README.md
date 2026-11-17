@@ -38,6 +38,8 @@
 
 + [Non-Overlapping Atomic Spheres](./atomic-spheres.md)
 
++ [Zero Condition Non-Overlapping Atomic Spheres](./atomic-spheres-smooth.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
