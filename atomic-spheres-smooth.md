@@ -15,7 +15,7 @@ The method is variational. The total energy is an upper bound to the exact Hartr
 
 ### 2.1 Atomic spheres
 
-Let the system contain $N_{\text{at}}$ atoms at positions $\mathbf{R}_A$, $A = 1, \dots, N_{\text{at}}$. Each atom is assigned a sphere $\Omega_A$ of radius $R_A$ centred on $\mathbf{R}_A$. The spheres are chosen to be non-overlapping:
+Let the system contain $N_{\text{at}}$ atoms at positions $\mathbf{R} _ A$, $A = 1, \dots, N _ {\text{at}}$. Each atom is assigned a sphere $\Omega_A$ of radius $R_A$ centred on $\mathbf{R}_A$. The spheres are chosen to be non-overlapping:
 
 $$
 |\mathbf{R}_A - \mathbf{R}_B| > R_A + R_B \qquad (A \neq B).
