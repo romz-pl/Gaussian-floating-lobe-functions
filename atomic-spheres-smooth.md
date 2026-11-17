@@ -127,10 +127,10 @@ $$
 \psi_i(\mathbf{r}_s^{-}) = \sum_{\mu \in \text{NAO}(A)} c_{i\mu}\, \varphi_\mu(\mathbf{r}_s) + \sum_\nu c_{i\nu}\, g_\nu(\mathbf{r}_s).
 $$
 
-The NAO part vanishes at $\mathbf{r}_s$, because every radial function satisfies $R_{nl}^{A}(R_A) = 0$, and the real spherical harmonics are bounded. So
+The NAO part vanishes at $\mathbf{r} _ s$, because every radial function satisfies $R _ {nl}^{A}(R_A) = 0$, and the real spherical harmonics are bounded. So
 
 $$
-\psi_i(\mathbf{r}_s^{-}) = \sum_\nu c_{i\nu}\, g_\nu(\mathbf{r}_s) = \psi_i(\mathbf{r}_s^{+}),
+\psi_i(\mathbf{r} _ s^{-}) = \sum_\nu c_{i\nu}\, g_\nu(\mathbf{r}_s) = \psi_i(\mathbf{r}_s^{+}),
 $$
 
 where the last equality holds because, outside the sphere, the NAO part is zero and the Gaussian part is the same function. Therefore the **value** of the orbital is continuous across the sphere boundary, exactly and by construction, for every choice of coefficients.
