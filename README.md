@@ -36,6 +36,8 @@
 
 + [Slater Type Orbitals, special case](./slater-type-orbitals-special.md)
 
++ [Non-Overlapping Atomic Spheres](./atomic-spheres.md)
+
 ## References
 
 [Books and review articles](./references-gaussian-approximation.md)
