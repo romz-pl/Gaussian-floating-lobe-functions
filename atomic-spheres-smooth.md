@@ -173,7 +173,7 @@ $$
 E[P] = \sum_{\mu\nu} P_{\mu\nu}\, H^{\text{core}}_{\mu\nu} + \frac{1}{2}\sum_{\mu\nu\lambda\sigma} P_{\mu\nu} P_{\lambda\sigma}\left[(\mu\nu|\lambda\sigma) - \frac{1}{2}(\mu\lambda|\nu\sigma)\right] + E_{\text{nuc}}.
 $$
 
-Here $P_{\mu\nu} = 2\sum_{i \in \text{occ}} c_{i\mu} c_{i\nu}^{\ast}$ is the total density matrix, $H^{\text{core}}_{\mu\nu} = T_{\mu\nu} + V_{\mu\nu}$ collects kinetic and nuclear attraction integrals, and $E_{\text{nuc}}$ is the nuclear repulsion energy. The two-electron integrals are
+Here $P_{\mu\nu} = 2\sum_{i \in \text{occ}} c_{i\mu} c_{i\nu}^{\ast}$ is the total density matrix, $H^{\text{core}} _ {\mu\nu} = T_{\mu\nu} + V_{\mu\nu}$ collects kinetic and nuclear attraction integrals, and $E_{\text{nuc}}$ is the nuclear repulsion energy. The two-electron integrals are
 
 $$
 (\mu\nu|\lambda\sigma) = \iint \frac{\chi_\mu^{\ast}(\mathbf{r}_1)\chi_\nu(\mathbf{r}_1)\chi_\lambda^{\ast}(\mathbf{r}_2)\chi_\sigma(\mathbf{r}_2)}{|\mathbf{r}_1 - \mathbf{r}_2|}\, d\mathbf{r}_1\, d\mathbf{r}_2.
