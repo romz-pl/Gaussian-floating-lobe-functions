@@ -21,10 +21,10 @@ This document concerns a specific choice of basis: numerical atomic orbitals (NA
 
 Space is partitioned into
 
-- atomic spheres $\Omega_\alpha = \{\mathbf{r} : |\mathbf{r}-\mathbf{R}_\alpha| < R_\alpha\}$, with radii chosen so that $\Omega_\alpha \cap \Omega_\beta = \emptyset$ for $\alpha \neq \beta$, and
+- atomic spheres $\Omega_\alpha = \{\mathbf{r} : |\mathbf{r}-\mathbf{R} _ \alpha| < R _ \alpha\}$, with radii chosen so that $\Omega_\alpha \cap \Omega_\beta = \emptyset$ for $\alpha \neq \beta$, and
 - an interstitial region $I = \mathbb{R}^3 \setminus \bigcup_\alpha \Omega_\alpha$.
 
-Non-overlap is a strict geometric condition, $R_\alpha + R_\beta \leq |\mathbf{R}_\alpha - \mathbf{R}_\beta|$. It has an immediate consequence that shapes the whole method: a basis function confined to $\Omega_\alpha$ has zero overlap with any function confined to $\Omega_\beta$. Interatomic bonding therefore cannot be described by atom-centred functions alone, and the interstitial region must carry part of the basis. This is the central design issue, and the rest of the algorithm follows from how it is handled.
+Non-overlap is a strict geometric condition, $R _ \alpha + R _ \beta \leq |\mathbf{R} _ \alpha - \mathbf{R} _ \beta|$. It has an immediate consequence that shapes the whole method: a basis function confined to $\Omega_\alpha$ has zero overlap with any function confined to $\Omega_\beta$. Interatomic bonding therefore cannot be described by atom-centred functions alone, and the interstitial region must carry part of the basis. This is the central design issue, and the rest of the algorithm follows from how it is handled.
 
 ## 3. The basis
 
