@@ -1,4 +1,4 @@
-# Hartree-Fock with Confined Numerical Atomic Orbitals and Spherical Gaussians
+# Hartree-Fock with Confined Numerical Atomic Orbitals with Zero Condition and Spherical Gaussians
 
 ## 1. Scope and motivation
 
